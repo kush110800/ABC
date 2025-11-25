@@ -1,0 +1,241 @@
+												Set1
+
+1. Performs a WHOIS lookup for a given IP address to find out the domain associated with it.
+==>>whois 8.8.4.4
+
+2.from command line interface Execute the command: bash Copy code whois example.com Review the output for details about the domain.
+==>>whois example.com
+
+3. Queries the specified DNS server for information about the server
+==>>nslookup -type=dns example.com
+
+4. Queries for a specific DNS record type such as A, AAAA, MX, TXT, etc.
+==>>nslookup -type=a example.com
+==>>nslookup -type=aaaa example.com
+==>>nslookup -type=txt example.com
+==>>nslookup -type=mx example.com
+
+5. Displaying the Version of host
+==>>host -V
+
+6. Displays active UDP connections and statistic using netstat.
+==>>netstat -u
+==>>netstat -su
+
+7. Captures packets for a specified duration and writes them to a file.(write a command)
+==>>sudo tcpdump -G 10 -w packet.pcap
+
+8. Using Nmap –sS reports the open ports on your machine.
+==>>sudo nmap -sS -p 0- localhost
+
+9. write a command to scan multiple IP addresses using Nmap
+==>>sudo nmap 142.250.192.46 144.126.253.6
+
+10. Set up and run a vulnerability scan using OpenVAS against a designated
+target. Document the findings, focusing on critical vulnerabilities and suggested mitigations.
+==>>sudo gvm-start
+sudo openvas -s <target IP>
+
+11.Implement SQL injection vulnerability in WHERE clause allowing retrieval of hidden data.
+==>>1' OR '1'='1 
+
+			Set 2
+										
+1. Performs a reverse DNS lookup to find the domain name associated with an IP address
+==>>nslookup 163.70.143.35
+
+2. Enables debug mode to provide more detailed information about the DNS query process
+==>>nslookup -debug 163.70.143.35
+
+3. Queries for all types of DNS records available for the domain. (Explain the queries)
+==>>dig facebook.com ANY
+
+4. Performs a basic DNS lookup for the specified domain name, returning its
+IP address.
+(e.g. host example.com)
+==>>host amazon.com
+
+5. Verify the domain name associated with the IP address
+==>>whois 52.94.236.248
+
+6 Explain ping command in detail
+==>>ping amazon.in -c 10
+
+7 Displays network statistics with the process information using netstat.
+==>>netstat -s
+
+8. Captures a 20 packets and then stops using tcpdump.
+==>>sudo tcpdump -c 20
+
+9. Using Nmap –sA determine whether ports are filtered or unfiltered
+on your machine.
+==>>sudo nmap -sA -p 0- localhost
+
+10. write a command in Nmap to Scan All 65535 Ports of your machine
+==>>sudo nmap -sA -p 0- localhost /\
+sudo nmap -p- localhost
+
+11implemet SQL injection vulnerability allowing login bypass.
+==>>' OR '1'='1' --
+									
+				Set 3
+
+1. Retrieve and analyse domain registration information. Perform a
+WHOIS search for three different domains. Document the registrar,registration dates, and any contact information provided.
+==>>whois google.com
+==>>whois instagram.com
+==>>whois snapchat.com
+
+2. Execute the whois command on three different domains in the
+terminal. Analyze and summarize the output for each domain, focusing on the registrant and status.
+==>>whois google.com
+==>>whois instagram.com
+==>>whois snapchat.com
+
+3. Use tcpdump (or windump) to capture packets on a specified
+interface. Filter the capture for HTTP traffic and explain your findings.
+==>>First Terminal = sudo tcpdump -i eth0 tcp port 80
+==>>Second Terminal = curl http://example.com
+
+4. Explain in detail traceroute command.
+==>>tracert google.com
+
+5. Packet analyzer for Windows using windump
+Run windump -i 1 to capture packets on interface 1.
+==>>windump -i 1
+
+6. Displays active TCP connections and their status using netstat.
+==>>netstat -tna
+
+7. Captures packets and writes them to a file abc.pcap using windump
+==>>windump  -i 1 -w abc.pcap
+
+8. On the server machine, start Netcat in listening mode for TCP on a
+specific port (e.g., port 443):
+==>>First Terminal = sudo nc -l -p 443
+==>>Second Terminal = echo "hello" | nc localhost 443
+
+9.write a command in Nmap for TCP Connect Scan completes the TCP
+handshake with the target, making it reliable but less stealthy.
+==>>First Terminal = nc -l -p 4444
+==>>Second Terminal = sudo nmap -sT -p 4444 localhost(127.0.0.1)
+
+10. How can we identify the version of services running on open ports
+using Nmap
+==>>First Terminal = python3 -m http.server 8080
+==>>Second Terminal = sudo nmap -sV -p 8080 127.0.0.1
+
+11 implement SQL injection attack, querying the database type and
+version on MySQL and Microsoft
+==>> 1' UNION SELECT 1,@@version -- or -
+==>> 1' UNION SELECT 1,database() -- or -
+
+			Set 4
+											
+1. Performs a reverse DNS lookup to find the domain name associated with an IP address 8.8.8.8.
+==>>nslookup 8.8.8.8
+
+2. Explain windump in detail with all options.
+==>>Windump is the Windows version of tcpdump, a command-line packet analyzer. It allows us to capture and analyze network traffic from the system’s network interfaces.
+windump [options] [expression]
+Option	Description
+-D	List all available interfaces
+-i <interface>	Capture from a specific interface (e.g., -i 2)
+-n	Don't resolve IP addresses to hostnames
+-nn	Don't resolve hostnames or ports (faster)
+-v, -vv, -vvv	Increase verbosity of output
+-c <count>	Capture only <count> number of packets
+-w <file>	Write captured packets to a file (in .pcap format)
+-r <file>	Read packets from a previously saved .pcap file
+-s <snaplen>	Set the snapshot length (bytes captured per packet; use -s 0 for full)
+-e	Print the link-level header on each line of output
+-t	Don't print timestamps
+-tt	Print unformatted timestamps
+
+3. Queries for all types of DNS records available for the domain. (Explain the queries).
+==>>dig facebook.com ANY
+
+4. Querying DNS Records Using IPv6 using host command.
+==>>host -t aaaa google.com
+
+5. how we Limits the number of hops (intermediate routers) to the specified maximum in traceroute command? Write a command.
+==>>tracert -h 10 google.com
+
+6 Explain ping command in detail
+==>>ping webwizards.in
+	Use to check the connection between client and server by sending packets.
+	
+7 Displays network statistics with the process information using netstat.
+==>>network Statistics  == netstat -s
+	UDP network Statistics  == netstat -su
+	TCP network Statistics  == netstat -st
+	
+8. Captures a 10 packets and then stops using tcpdump.
+==>>sudo tcpdump -c 10
+
+9. Using Nmap –sT Completes the TCP handshake with your machine.
+==>>First Terminal  == sudo nc -l -p 8888
+	Second Terminal == sudo nmap -sT -p 8888 localhost
+
+10. write a command in Nmap to Scan a Range of Ports of your machine
+==>>sudo nmap -sT -p 100-1000 localhost
+
+11implemet SQL injection vulnerability of Unprotected admin func􀆟onality
+with unpredictable URL.
+==>>SQL Injection == 1' or 1=1 -- -
+
+
+
+			 SET - 5
+
+
+
+1.  Reverse DNS Lookup: dig -x 1.1.1.1
+
+2.  Query MX, TXT, CAA Records: dig example.com MX dig example.com TXT
+    dig example.com CAA
+
+3.  Query AAAA Record: host -t AAAA example.com
+
+4.  Compare A and AAAA records: dig example.com A dig example.com AAAA
+
+5.  Traceroute with hop limit: traceroute -m 10 example.com
+
+6.  ICMP Types in ping: ping -c 4 example.com ping6 -c 4 example.com
+
+7.  Display Listening TCP Ports: ss -tulnp or netstat -tulnp (install
+    net-tools)
+
+8.  Capture Exactly 50 Packets: tcpdump -c 50 tcpdump -nn -c 50 -i eth0
+
+9.  Compare Nmap Scans: SYN scan: nmap -sS Connect scan: nmap -sT
+
+10. Scan Ports 1–1024 with Version Detection: nmap -sV -p 1-1024
+ 
+
+
+		SET - 6
+
+1.  Reverse DNS: dig -x 127.0.0.1
+
+2.  Packet Capture Tools (Linux): tcpdump wireshark
+
+3.  DNS ANY Query: dig ANY example.com
+
+4.  Lookup IPv6 AAAA Record: host -t AAAA google.com 8.8.8.8
+
+5.  Traceroute (UDP default): traceroute google.com
+
+	Traceroute using ICMP: traceroute -I google.com
+
+6.  IPv6 Ping: ping6 google.com or ping -6 google.com
+
+7.  Show Established Connections: ss -t state established netstat -an
+    (requires: apt install net-tools)
+
+8.  Capture Only TCP SYN Packets: tcpdump ‘tcp[tcpflags] & tcp-syn != 0’
+    -c 100
+
+9. List Nmap NSE Scripts: nmap –script-help=all
+
+10. UDP Scan with Nmap: nmap -sU –top-ports 100
